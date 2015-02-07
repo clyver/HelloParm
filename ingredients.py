@@ -78,7 +78,6 @@ class food2fork():
 
 	def getRecipe(self,recipeId):
 		try:
-			pdb.set_trace()
 			url = self._urlHelper(self.VIEW_ENDPOINT,rId=recipeId)
 
 			contents = self._getUrlContents(url)

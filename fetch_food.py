@@ -1,9 +1,13 @@
 from ingredients import food2fork
 from keys import Keys
 
+# Call our secrets
 keys = Keys()
-test_call = food2fork(keys.get_food_key())
 
-data = test_call.getRecipe(25359)
+# Instantiate the food2fork api
+ingredients_api = food2fork(keys.get_food_key())
 
-print data 
+# Get the ingredients for chickenparm with its id
+parm_ingredients = ingredients_api.getRecipe(25359)
+
+

@@ -1,6 +1,7 @@
 import urllib2
 import urllib
 import json
+import pdb
 from functools import partial
 
 
@@ -77,6 +78,7 @@ class food2fork():
 
 	def getRecipe(self,recipeId):
 		try:
+			pdb.set_trace()
 			url = self._urlHelper(self.VIEW_ENDPOINT,rId=recipeId)
 
 			contents = self._getUrlContents(url)
@@ -96,7 +98,7 @@ class food2fork():
 		for key, value in kwargs.iteritems():
 			data[key] = value
 
-		if(debugMode):
+		if(self.debugMode):
 			print "Url:", endpoint + '?' + urllib.urlencode(data)
 
 		return endpoint + '?' + urllib.urlencode(data)

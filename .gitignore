@@ -1,3 +1,5 @@
+hackathon
 *.pyc
 keys.py
 *.idea
+*.swp

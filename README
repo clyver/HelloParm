@@ -1,0 +1,7 @@
+This is a basic web application using Flask and Jinja.
+
+Setup
+-----
+To setup the required binaries needed to setup the application,
+open up a terminal, cd into the directory that contains this file
+and run ./scripts/setup.sh. Make sure the script is executable.

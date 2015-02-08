@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <p>{{num_parms}} {% if num_parms == 1 %}parm{% else %}parms{% endif %} huh?</p>
+    <p> Get in that cheesy parm mood with
+        {% if num_parms == 1 %}
+        this delicious parm:
+        {% else %}
+        these {{ num_parms }} delicious parms:{% endif %}
+        {%- for url in parm_urls %}
+        <br><img src="{{ url }}">
+        {% endfor -%}
+    </p>
+    <p> Feeling frisky? Try to make your own parm! Ingredients below (serves {{ num_parms }}): </p>
+    {%- for ingredient, serving in ingredients.iteritems() -%}
+    <p>{{ serving * num_parms }} {{ ingredient }}</p>
+    {%- endfor -%}
+    </body>
+</html>

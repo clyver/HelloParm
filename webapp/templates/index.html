@@ -10,10 +10,11 @@
 </head>
 <body>
   <div id='parm_container'>
-    <h1>A Parm by any other name is just as sweet.</h2>
-    <form action='' method='post' name='chicken_parm'>
+    <h1>A Parm by any other name is just as sweet.</h1>
+    <form action='/parm' method='post' name='chicken_parm'>
+      {{ form.hidden_tag() }}
       <p>How many parms can you eat?<br>{{- form.num_parms -}}</p>
-      <p><input type='submit' value='Parm Me Bro!'></p>
+      <p><input type='submit' value='Parm Me Bro!' required></p>
     </form>
   </div>
 </body>

@@ -23,29 +23,35 @@ else
 fi
 
 
+# function to install pip packages
+pip_installer() {
+  if [[ -z $(pip freeze | grep "$1") ]]; then
+    pip install "$1"
+  else
+    echo "$1 is already installed. Skipping."
+  fi
+}
+
 # installs virtualenv
-if [[ -z $(pip freeze | grep virtualenv) ]]; then
-  pip install virtualenv
-else
-  echo "virtualenv is already installed. Skipping."
-fi
+pip_installer virtualenv
 
 # setups a virtualenv in the cwd
-# should be able to use requirement.txt in this
+# FIXME should be able to use requirement.txt in this
 if [[ ! -e hackathon ]]; then
   virtualenv hackathon
-  hackathon/bin/pip install flask
-  hackathon/bin/pip install flask-login
-  hackathon/bin/pip install flask-openid
-  hackathon/bin/pip install flask-mail
-  hackathon/bin/pip install flask-sqlalchemy
-  hackathon/bin/pip install sqlalchemy-migrate
-  hackathon/bin/pip install flask-whooshalchemy
-  hackathon/bin/pip install flask-wtf
-  hackathon/bin/pip install flask-babel
-  hackathon/bin/pip install guess_language
-  hackathon/bin/pip install flipflop
-  hackathon/bin/pip install coverage
+  pip_installer flask
+  pip_installer flask-login
+  pip_installer flask-openid
+  pip_installer flask-mail
+  pip_installer flask-sqlalchemy
+  pip_installer sqlalchemy-migrate
+  pip_installer flask-whooshalchemy
+  pip_installer flask-wtf
+  pip_installer flask-babel
+  pip_installer guess_language
+  pip_installer flipflop
+  pip_installer coverage
+  pip_installer python-instagram
 else
   echo "hackathon virtualenv already exists in the cwd. Skipping."
 fi

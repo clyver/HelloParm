@@ -37,21 +37,13 @@ pip_installer virtualenv
 
 # setups a virtualenv in the cwd
 # FIXME should be able to use requirement.txt in this
-if [[ ! -e hackathon ]]; then
-  virtualenv hackathon
+if [[ ! -e .hackathon ]]; then
+  virtualenv .hackathon
+  . ./.hackathon/bin/activate
   pip_installer flask
-  pip_installer flask-login
-  pip_installer flask-openid
-  pip_installer flask-mail
-  pip_installer flask-sqlalchemy
-  pip_installer sqlalchemy-migrate
-  pip_installer flask-whooshalchemy
   pip_installer flask-wtf
-  pip_installer flask-babel
-  pip_installer guess_language
-  pip_installer flipflop
-  pip_installer coverage
   pip_installer python-instagram
+  deactivate
 else
   echo "hackathon virtualenv already exists in the cwd. Skipping."
 fi
